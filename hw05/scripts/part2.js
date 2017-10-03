@@ -57,6 +57,8 @@ const getData = () => {
             tweetsWithHashtags = json.statuses.filter(function (status) {
                 return status.text.indexOf('#') >= 0
             })
+
+            
             console.log(json.statuses)
             console.log(tweetsWithHashtags)
 
