@@ -1,6 +1,7 @@
 let language = 'English'
 let languageCode = 'en'
 let jsonData
+let tweetsWithHashtags
 
 
 const setLanguage = (code) => {
@@ -40,8 +41,6 @@ const getData = () => {
             let div
             let textNode
 
-            // output statuses:
-            console.log(json.statuses)
 
             // clear out existing tweets:
             clearData()
@@ -55,8 +54,13 @@ const getData = () => {
             // ---------------------- DELIVERABLE -----------------------------------
             // When somebody searches for a tweet, they will only see tweets that contain hashtags.
 
+            tweetsWithHashtags = json.statuses.filter(function (status) {
+                return status.text.indexOf('#') >= 0
+            })
+            console.log(json.statuses)
+            console.log(tweetsWithHashtags)
 
-            json.statuses.forEach((status) => {
+            tweetsWithHashtags.forEach((status) => {
                 div = document.createElement('div')
                 div.className = 'tweet'
                 textNode = document.createTextNode(status.text)

@@ -19,6 +19,67 @@ const setLanguage = (code) => {
     getData()
 }
 
+
+
+const reverseText_caroline = (text) => {
+    //['one', 'two', 'three'];
+    const a = text.split('')
+    a.reverse()
+    return a.join('')
+}
+
+const reverseText_attempt2 = (str) => {
+    // Step 1. Use the split() method to return a new array
+    const splitString = str.split('') // var splitString = "hello".split("");
+
+    // Step 2. Use the reverse() method to reverse the new created array
+    const reverseArray = splitString.reverse()
+
+    // Step 3. Use the join() method to join all elements of the array into a string
+    const joinArray = reverseArray.join('')
+
+    //Step 4. Return the reversed string
+    return joinArray // "olleh"
+}
+
+
+const reverseText_attempt1 = (theText) => {
+    //1. Split the string (theText) into an array of characters
+    //2. Reverse the order of the array
+    //3. Convert sorted array back into a string
+    let reversedText = ''
+    for(let i = theText.length - 1; i >=0; i--) {
+	    reversedText += theText[i]
+	}
+    return reversedText
+}
+
+const reverseTweet_v1 = (tweetText) => {
+    //if it has a hashtag, return normal tweetText
+    //otherwise, reverse the tweet
+    if (tweetText.indexOf('#') === -1) {
+        //reverse it! No hashtag:
+        return reverseText(tweetText)
+    } else {
+        return tweetText
+    }
+}
+
+const reverseText = (text) => {
+    //this is called chaining
+    return text.split('').reverse().join('')
+}
+
+const reverseTweet = (tweetText) => {
+    //if it has a hashtag, return normal tweetText
+    //otherwise, reverse the tweet
+    if (tweetText.indexOf('#') > 0) {
+        return tweetText
+    } else {
+        return reverseText(tweetText)
+    }
+}
+
 const clearData = () => {
     const element = document.getElementById('results')
     while (element.firstChild) {
@@ -63,11 +124,12 @@ const getData = () => {
             // ---------------------- DELIVERABLE -----------------------------------
             // When somebody searches for a keyword, tweets with hashtags will appear as normal. Tweets with no hashtags will be inexplicably reversed.
             // EXTRA CREDIT: Add a class to reversed tweets to make their background red. This will require modifying the existing CSS!
-
+            //let reversed
             json.statuses.forEach((status) => {
                 div = document.createElement('div')
                 div.className = 'tweet'
-                textNode = document.createTextNode(status.text)
+                //reversed = reverseTweet(status.text)
+                textNode = document.createTextNode(reverseTweet(status.text))
                 div.appendChild(textNode)
                 document.getElementById('results').appendChild(div)
             })

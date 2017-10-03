@@ -18,6 +18,8 @@ This homework will require some googling. As a software engineer, a lot of what 
 ## PART II: Reading response
 Edit README.MD and write your reading response here!
 
+Here is my thoughtful reading response
+
 ## Part III: JavaScript Homework
 
 ### Step 1: Reverse a tweet
